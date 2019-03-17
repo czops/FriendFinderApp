@@ -1,5 +1,11 @@
 var express = require("express");
 var app = express();
+
+//these are in the NPM install package by default
+var http = require("http");
+var fs = require("fs");
+
+//Path is required in the routing files only
 // var path = require("path");
 
 var PORT = process.env.PORT || 3000;
@@ -15,8 +21,8 @@ app.use(express.json());
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-require("./apiRoutes")(app);
-require("./htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // =============================================================================
 // LISTENER
