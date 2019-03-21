@@ -7,12 +7,10 @@ var path = require("path");
 var friends = [
     {
         name: "obiwankenobi",
-        photo: " ",
-        scores: []
+        photo: "https://cdn.vox-cdn.com/thumbor/YP3HK6voEMeWojSG9aGdJQMYlYY=/0x0:1300x650/1200x800/filters:focal(537x203:745x411)/cdn.vox-cdn.com/uploads/chorus_image/image/56242795/Obi_Wan.0.jpg",
+        scores: [3,3,4,5,1,2,1,3,4,5]
     },
 ];
-
-
 
 module.exports = function (app) {
 
@@ -28,32 +26,22 @@ module.exports = function (app) {
         return res.json(friends);
     });
 
-
-
-    // Create New Characters - takes in JSON input
-    app.post("/api/", function (req, res) {
+    // Create New Friend- takes in JSON input
+    app.post("/api/friends", function (req, res) {
         // req.body hosts is equal to the JSON post sent from the user
         // This works because of our body parsing middleware
         var newFriend = req.body;
 
-        if (customers.length < 5) {
             // Using a RegEx Pattern to remove spaces from newCharacter
             // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
             // newCustomer.routeName = newCustomer.name.replace(/\s+/g, "").toLowerCase();
 
-            console.log(newCustomer.name + "is seated at a table.");
+            console.log(newFriend.name + "Has submitted their survey!");
 
-            customers.push(newCustomer);
+            friends.push(newFriend);
 
-            res.json(newCustomer);
+            res.json(newFriend);
 
-        } else if (customers.length > 4) {
-            console.log(newCustomer.name + "is on the waitlist");
-
-            waitlist.push(newCustomer);
-
-            res.json(newCustomer);
-        }
 
     });
 
