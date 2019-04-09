@@ -108,9 +108,12 @@ module.exports = function (app) {
         var newFriend = {
             route: routeName,
             name: req.body.name,
-            photo: req.body.photo
+            photo: req.body.photo,
+            scores: req.body.scores
         };
         //not sure what this will do if I just keep it here...
+
+    
     res.status(204).end();
     console.log(newFriend.name + " has submitted their survey!");
 
